@@ -8,7 +8,7 @@ token = os.getenv("TOKEN")
 
 
 
-url = "https://prod-api.lolz.live/threads/@url@/bump"
+url = "https://prod-api.lolz.live/threads/%thread_id%/bump"
 
 headers = {
     "accept": "application/json",
@@ -18,7 +18,7 @@ headers = {
 
 def main():
     for thread_id in thread_ids:
-        response = requests.post(url.replace("@url@", str(thread_id)), headers=headers)
+        response = requests.post(url.replace("%thread_id%", str(thread_id)), headers=headers)
         print(response.text)
 
 
